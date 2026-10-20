@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "truncate-bad-upweight-good"
+readme = "README.md"
+license = { file = "LICENSE" }
+version = "1.0.0"
+description = "TUP (Truncate-bad, Upweight-good Policy): code to reproduce arXiv:2608.19748"
+requires-python = "==3.10.*"
+# Exact versions are pinned in requirements.txt and installed by install.sh.
+dependencies = [
+    "torch", "transformers", "trl", "accelerate", "deepspeed", "vllm", "datasets",
+    "hydra-core", "omegaconf", "mpmath", "numpy", "pandas", "scikit-learn",
+    "huggingface-hub", "wandb", "alpaca-eval", "openai", "peft", "pyyaml", "tqdm",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/qrpo"]

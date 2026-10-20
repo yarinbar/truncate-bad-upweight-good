@@ -1,0 +1,15 @@
+# An example config file for an experiment.
+# Keep this, it's used as an example to run the code after a user installs the project.
+
+defaults:
+  # Common setup.
+  - setup
+  # This file.
+  - _self_
+
+
+######################################################################
+checkpoint_path: ???  # set by run_alpaca_eval_api.sh
+seed: 43
+annotators_configs:
+  - alpaca_eval_gpt4_turbo_fn

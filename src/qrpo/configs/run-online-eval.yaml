@@ -1,0 +1,53 @@
+# An example config file for an experiment.
+# Keep this, it's used as an example to run the code after a user installs the project.
+
+defaults:
+  # Common setup.
+  - setup
+  # This file.
+  - _self_
+  # Model (from the configs/model/ directory).
+  - model: mistral
+  # Reward model (from the configs/reward_model/ directory).
+  - reward_model: armorm
+  # Dataset (from the configs/dataset/ directory).
+  - dataset: magpieair-armorm
+
+
+######################################################################
+
+training_dir: ???  # set by the launchers
+checkpoint_steps: [] # Empty evaluates every discovered checkpoint; positive steps restrict evaluation.
+
+eval_type: eval_split # or alpaca, etc.
+custom_eval_prefix: "" # Optional prefix for custom online eval runs
+alpaca_ref_completions_rm: armorm
+eval_split_ref_completions_rm: null
+
+debug_subsample: 0 # Set to 0 to use the full dataset, or a number to use a subset of the dataset.
+eval_split_subsample_size: 0 # Set to 0 to use the full eval split.
+skip_kl: false
+
+training_args:
+  beta: 0.1
+  simpo_gamma_beta_ratio: 0.5
+  loss_type: qrpo
+  qrpo_transform_type: log
+  qrpo_loss_type: mse
+  qrpo_sample_selector: both
+  num_ref_rewards: 6
+
+generate_eval_completions:
+  tensor_parallel_size: 1 # Number of GPUs to use for this job.
+  max_new_tokens: 2048 # Maximum number of tokens to generate for each completion.
+
+compute_reward_config:
+  batch_size: 64
+  max_seq_length: 2048
+
+compute_kl_config:
+  batch_size: 16
+  max_seq_length: 2048
+
+num_seeds: 3
+seed: 43

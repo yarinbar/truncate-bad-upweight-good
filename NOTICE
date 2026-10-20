@@ -1,0 +1,12 @@
+This repository contains the code to reproduce
+"Truncate Bad, Upweight Good: BoN-Style Distillation via Rank-Based Classification"
+(Yarin Bar, Yaniv Romano; arXiv:2608.19748).
+
+It is derived from the official QRPO repository
+https://github.com/CLAIRE-Labo/quantile-reward-policy-optimization
+(MIT License, Copyright (c) 2025 Skander Moalla, Simon Matrenok).
+
+Parts of src/qrpo/trainers/ are adapted from Hugging Face TRL
+(https://github.com/huggingface/trl), licensed under the Apache License 2.0;
+the original notices are retained in those files.
+A copy of the Apache License 2.0 is in LICENSES/Apache-2.0.txt.

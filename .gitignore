@@ -1,0 +1,10 @@
+data/
+/data
+outputs/
+run_logs/
+wandb/
+__pycache__/
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+notebooks/figs/
